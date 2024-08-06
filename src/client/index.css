@@ -1,0 +1,193 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #FFFFff;
+}
+
+.over {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.over::-webkit-scrollbar {
+  display: none; /* For Webkit browsers */
+}
+.over1 {
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.k {
+  overflow: hidden; /* Ensure this container also hides overflow */
+}
+
+.over1::-webkit-scrollbar {
+  display: none; /* For Webkit browsers */
+}
+
+.card {
+  background-image: url('../client/assets/k.png');
+  background-position: center;
+  background-size: cover;
+}
+.card2 {
+  background-image: url('../client/assets/card1.png');
+  background-position: center;
+  background-size: cover;
+  
+}
+.card3 {
+  background-image: url('../client/assets/card2.png');
+  background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+  
+}
+.orange{
+  background-image: url('./assets/orange.png');
+  background-position: center;
+  background-size: cover;
+}
+.green{
+  background-image: url('./assets/green.png');
+  background-position: center;
+  background-size: cover;
+}
+.red{
+  background-image: url('./assets/red.png');
+  background-position: center;
+  background-size: cover;
+}
+.blue{
+  background-image: url('./assets/blue.png');
+  background-position: center;
+  background-size: cover;
+}
+.yellow{
+  background-image: url('./assets/yellow.png');
+  background-position: center;
+  background-size: cover;
+}
+.card1 {
+  background-image: url('../client/assets/bg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.a {
+  position: relative;
+  outline: transparent;
+}
+
+.a:after {
+  content: "";
+  position: absolute;
+  background-color: #F43F5E;
+  height: 2px;
+  left: 5%;
+  bottom: -1px;
+  transition: 0.4s;
+  border-radius: 10px;
+  width: 0%;
+}
+
+.a:hover:after {
+  width: 50%;
+  box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+}
+
+.a:focus:after {
+  width: 50%;
+  box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+}
+
+.bar {
+  transition: height 0.5s ease-in-out;
+}
+.bg
+{
+  background-color: #FFFFFF;
+}/* Add these styles to your CSS file or within your style tag */
+
+.flip-container {
+  perspective: 1000px; /* Adds depth to the 3D effect */
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden; /* Hides the back side when facing away */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 2.8s;
+}
+
+.is-flipped .flip-card-front {
+  transform: rotateY(180deg);
+}
+
+.is-flipped .flip-card-back {
+  transform: rotateY(0deg);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(-180deg);
+}
+.bgcow{
+  background-image:url('./assets/bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 7000px rgba(0,0,0,0.7);
+}
+
+.b {
+  position: relative;
+  outline: transparent;
+}
+
+.b:after {
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  height: 2px;
+  left: 5%;
+  bottom: -1px;
+  transition: 0.4s;
+  border-radius: 10px;
+  width: 0%;
+}
+
+.b:hover:after {
+  width: 50%;
+  box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+}
+
+.b:focus:after {
+  width: 50%;
+  box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 10px 30px 0px rgba(0,0,0,0.75);
+}
+.color{
+  background-color: rgb(17, 17, 17);
+}
+.card1{
+  background-image: url('./assets/grey1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
