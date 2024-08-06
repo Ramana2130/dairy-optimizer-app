@@ -1,10 +1,17 @@
 import axios from "axios";
-import { ChevronLeft, ChevronRight, Settings2, Trash2 ,CirclePlus, UserRoundSearch} from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Settings2,
+  Trash2,
+  CirclePlus,
+  UserRoundSearch,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import "../index.css";
 import { Link, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import user from '../assets/user.png'
+import user from "../assets/user.png";
 
 const TableUser = () => {
   const [data, setData] = useState([]);
@@ -14,11 +21,10 @@ const TableUser = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 5;
 
-  const {userId} = useParams();
-
+  const { userId } = useParams();
   useEffect(() => {
-    if(userId) {
-      localStorage.getItem("userId")
+    if (userId) {
+      localStorage.getItem("userId");
     }
     const fetchData = async () => {
       try {
@@ -27,23 +33,21 @@ const TableUser = () => {
         ); // Replace with your backend API endpoint
         // console.log(response)
         const customers = response.data;
-        console.log(customers)
+        console.log(customers);
         let morning = 0;
         let evening = 0;
         let both = 0;
-
         customers.forEach((customer) => {
           // console.log("customer details: ",customer)
           if (customer.deliveryschedule === "morning") {
             morning++;
-            console.log(customer.deliveryschedule)
+            console.log(customer.deliveryschedule);
           } else if (customer.deliveryschedule === "evening") {
             evening++;
           } else if (customer.deliveryschedule === "both") {
             both++;
           }
         });
-
         setData(customers);
         setMorningCount(morning);
         setEveningCount(evening);
@@ -52,12 +56,10 @@ const TableUser = () => {
         console.error("Error fetching user data:", error);
       }
     };
-    if(userId) {
+    if (userId) {
       fetchData();
     }
-
   }, [userId]);
-
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = data.slice(indexOfFirstRow, indexOfLastRow);
@@ -94,20 +96,20 @@ const TableUser = () => {
 
   return (
     <div className="flex  ">
-     
       <div className="flex justify-center items-center h-[100vh]  w-[84vw]">
         <div className="overflow-hidden h-[75vh] w-[75vw] bg-white/5 backdrop-blur shadow-2xl p-5  rounded-xl  flex flex-col">
-        
-        <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
-                        <div
-                          className="py-1.5 px-3  flex justify-center  items-center gap-1 
+          <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
+            <div
+              className="py-1.5 px-3  flex justify-center  items-center gap-1 
         
                           bg-transparent border-b border-rose-500   text-rose-500   uppercase font-bold"
-                          
-                        >
-                          <span className="font-medium text-center text-2xl flex"><UserRoundSearch className="h-8 mr-2" />Users List </span>
-                        </div>
-                      </div>
+            >
+              <span className="font-medium text-center text-2xl flex">
+                <UserRoundSearch className="h-8 mr-2" />
+                Users List{" "}
+              </span>
+            </div>
+          </div>
           <div className="flex-1 overflow-auto">
             {data.length > 0 ? (
               <>
@@ -197,15 +199,20 @@ const TableUser = () => {
                             to={`/updateuser/${userId}/${row._id}`}
                             className="p-2 rounded-full group transition-all duration-500 hover:text-blue-700 uppercase text-blue-500 flex item-center"
                           >
-                            <Link to={`/updateuser/${userId}/${row._id}`} ><Settings2 /></Link>
+                            <Link to={`/updateuser/${userId}/${row._id}`}>
+                              <Settings2 />
+                            </Link>
                           </Link>
-                          <button onClick={()=> handleDelete(row._id)} className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center">
+                          <button
+                            onClick={() => handleDelete(row._id)}
+                            className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center"
+                          >
                             <Trash2 />
                           </button>
                         </td>
                         <td className="p-5 text-sm leading-6 font-medium uppercase text-green-500">
-                          <Link to={`/statementform/${userId}/${row._id}`} >
-                        <CirclePlus />
+                          <Link to={`/statementform/${userId}/${row._id}`}>
+                            <CirclePlus />
                           </Link>
                         </td>
                       </tr>
@@ -237,10 +244,10 @@ const TableUser = () => {
             >
               <ChevronRight />
             </button>
-          </div> 
+          </div>
         </div>
-            </div>
-              </div>
+      </div>
+    </div>
   );
 };
 

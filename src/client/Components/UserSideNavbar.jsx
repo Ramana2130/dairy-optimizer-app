@@ -16,16 +16,13 @@ import toast from "react-hot-toast";
 
 const UsersideNavbar = () => {
   const { customerId, userId } = useParams();
-  console.log(customerId, userId)
+  console.log(customerId, userId);
   const navigate = useNavigate();
- 
-
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Clear token from localStorage
+    localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    localStorage.removeItem("customerId"); // Clear token from localStorage
-
-    navigate("/login"); // Redirect to login page after logout
+    localStorage.removeItem("customerId");
+    navigate("/login");
     toast.success("logout Successfully");
   };
 
@@ -77,7 +74,6 @@ const UsersideNavbar = () => {
                   </div>
                   Income
                 </Link>
-               
               </nav>
             </div>
           </div>

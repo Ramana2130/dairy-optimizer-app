@@ -8,28 +8,26 @@ import {
   ClipboardList,
   UserCheck,
   ChartSpline,
-  IndianRupee
+  IndianRupee,
 } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import logo from '../assets/logo.svg'
+import logo from "../assets/logo.svg";
 import toast from "react-hot-toast";
 
 const SideBar = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
-
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Clear token from localStorage
-    localStorage.removeItem("userId")
-    navigate("/adminlogin"); // Redirect to login page after logout
-    toast.success("logout Successfully")
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/adminlogin");
+    toast.success("logout Successfully");
   };
 
   return (
     <div className="relative flex h-[100vh]  max-w-[20rem] flex-col border-r border-pink/30   backdrop-blur-3xl bg-clip-border p-4 text-grey border-l shadow-xl shadow-blue-gray-900/5">
-
       <div className="p-4 mb-2">
-      <img src={logo} alt="" />
+        <img src={logo} alt="" />
       </div>
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-medium text-blue-gray-700">
         <div className="relative block w-full">
@@ -38,7 +36,7 @@ const SideBar = () => {
               type="button"
               className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-blue-gray-100 text-blue-gray-900 hover:text-blue-gray-900"
             >
-                            <p className="block mr-auto font-sans text-md antialiased font-bold leading-relaxed text-blue-gray-900">
+              <p className="block mr-auto font-sans text-md antialiased font-bold leading-relaxed text-blue-gray-900">
                 Dashboard
               </p>
             </button>
@@ -65,8 +63,7 @@ const SideBar = () => {
                   Statement
                 </Link>
                 <Link
-                to={`/${userId}/users`}
-                  
+                  to={`/${userId}/users`}
                   className="flex items-center w-full p-3 hover:text-rose-500 a  transition-all rounded-lg outline-none text-start "
                 >
                   <div className="grid mr-4 place-items-center">
@@ -112,7 +109,7 @@ const SideBar = () => {
           </div>
         </div>
         <Link
-          to={`/profile/${userId}`} 
+          to={`/profile/${userId}`}
           className="flex items-center w-full p-3 hover:text-rose-500 a  transition-all rounded-lg outline-none text-start "
         >
           <div className="grid mr-4 place-items-center">
