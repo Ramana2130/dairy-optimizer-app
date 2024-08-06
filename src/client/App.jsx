@@ -43,18 +43,29 @@ const App = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/Signup" element={<Signup />}></Route>
-          <Route path="adminregister"element={<AdminRegisterForm />} />
-          <Route path="/userstatement/:customerId" element={<UserStatement />} />
-          <Route path="/consumerdetails/:customerId" element={<ConsumerDetails />} />
+          <Route path="adminregister" element={<AdminRegisterForm />} />
+          <Route
+            path="/userstatement/:customerId"
+            element={<UserStatement />}
+          />
+          <Route
+            path="/consumerdetails/:customerId"
+            element={<ConsumerDetails />}
+          />
           <Route path="/incomeuser/:customerId" element={<IncomeUser />} />
           <Route path="/userprofile/:customerId" element={<UserProfile />} />
-          
 
-          <Route path="/userdashboard/:customerId" element={<CustomerPrivateRoute element={<UserDahboard />} />}></Route>
-          {/* admin routes */}
+          <Route
+            path="/userdashboard/:customerId"
+            element={<CustomerPrivateRoute element={<UserDahboard />} />}
+          ></Route>
+
           <Route path="adminlogin" element={<AdminLogin />} />
           <Route path="/:userId/users" element={<Users />}></Route>
-          <Route path="/updateuser/:userId/:customerId" element={<UpdateUsers />}></Route>
+          <Route
+            path="/updateuser/:userId/:customerId"
+            element={<UpdateUsers />}
+          ></Route>
           <Route path="/adduser/:userId" element={<AddUser />}></Route>
           <Route path="/:userId/salary" element={<Salary />}></Route>
           <Route
