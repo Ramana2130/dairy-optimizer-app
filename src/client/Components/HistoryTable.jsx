@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowDownToLine, ListTodo, ScrollText } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowDownToLine, ListTodo, ScrollText, Trash2 } from "lucide-react";
 import '../index.css';
 import axios from "axios";
 import { TotalProvider } from "../context/MilkTotalContex";
@@ -51,8 +51,8 @@ const HistoryTable = () => {
             </button>
           </div>
           <div className="">
-            <div className="p-2 overflow-hidden flex h-[80vh] w-[80vw]  bg-white/5 shadow-2xl backdrop-blur rounded-xl ">
-            <div className="p-5 w-[90%]"> 
+            <div className=" overflow-hidden flex h-[80vh]    bg-white/5 shadow-2xl backdrop-blur rounded-xl ">
+            <div className=" w-[90%]"> 
 
             <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
                         <div
@@ -83,6 +83,8 @@ const HistoryTable = () => {
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Price</th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Date & Time</th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Status</th>
+                    <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Delete</th>
+
                   </tr>
                 </thead>
                 <tbody className="border-b ">
@@ -127,6 +129,12 @@ const HistoryTable = () => {
                           <span className="font-medium text-xs">Collected</span>
                         </div>
                       </td>
+                      <td className="flex p-5 items-center gap-0.5">
+                         
+                          <button  className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center">
+                            <Trash2 />
+                          </button>
+                        </td>
                     </tr>
                   ))}
                 </tbody>
@@ -151,10 +159,7 @@ const HistoryTable = () => {
               </div>
               </div>
             </div>
-            <div className="w-[40%] px-5">
-          <img src={statement} alt="" className="h-[820px]"/>
-
-          </div>
+            
             <div>
               
             </div>
