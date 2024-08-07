@@ -46,7 +46,7 @@ const SalaryTable = () => {
                   <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
                     <div className="py-1.5 px-3  flex justify-center  items-center gap-1 bg-transparent border-b border-rose-500   text-rose-500   uppercase font-bold">
                       <span className="font-medium text-center text-2xl">
-                        User Income List
+                        Customer's Income List
                       </span>
                     </div>
                   </div>
@@ -68,7 +68,7 @@ const SalaryTable = () => {
                           S.No
                         </th>
                         <th className="p-5 text-left text-sm leading-6 font-semibold text-black uppercase min-w-[150px]">
-                          User Name
+                          Customer Name
                         </th>
                         <th className="p-5 text-left text-sm leading-6 font-semibold text-black uppercase">
                           Period

@@ -69,7 +69,7 @@ const StatementListDashboard = () => {
         <table className="w-full">
           <thead>
             <tr>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">UserName</th>
+              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Customer Name</th>
               <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">ADDRESS</th>
               <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Quantity</th>
               <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Price</th>

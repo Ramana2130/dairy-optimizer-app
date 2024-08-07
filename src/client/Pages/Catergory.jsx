@@ -11,7 +11,7 @@ const Category = ({ morningUsers, eveningUsers, bothUsers, totalUsers }) => {
           <div className="grid grid-cols-2 w-full justify-between mx-10">
             <div className="mx-3">
               <h1 className="text-xl text-center font-extrabold text-white">
-                Morning Users
+                Morning Customer's
               </h1>
               <h1 className="text-xl justify-center text-white font-extrabold flex space-x-1">
                 <CountUp start={0} end={morningUsers} duration={2.5} /> <User />
@@ -30,7 +30,7 @@ const Category = ({ morningUsers, eveningUsers, bothUsers, totalUsers }) => {
           <div className="grid grid-cols-2 w-full justify-between mx-10">
             <div className="mx-3">
               <h1 className="text-xl text-center font-extrabold text-white">
-                Evening Users
+                Evening Customer's
               </h1>
               <h1 className="text-xl justify-center text-white font-extrabold flex space-x-1">
                 <CountUp start={0} end={eveningUsers} duration={2.5} /> <User />
@@ -49,7 +49,7 @@ const Category = ({ morningUsers, eveningUsers, bothUsers, totalUsers }) => {
           <div className="grid grid-cols-2 w-full justify-between mx-10">
             <div className="mx-3">
               <h1 className="text-xl text-center font-extrabold text-white">
-                Both Users
+                Both Customer's
               </h1>
               <h1 className="text-xl justify-center text-white font-extrabold flex space-x-1">
                 <CountUp start={0} end={bothUsers} duration={2.5} /> <User />
@@ -67,7 +67,7 @@ const Category = ({ morningUsers, eveningUsers, bothUsers, totalUsers }) => {
         <div className="h-full pt-12">
           <div className="grid grid-cols-2 w-full justify-between mx-10">
             <div className="mx-3">
-              <h1 className="text-xl text-center font-extrabold text-white">Total Users</h1>
+              <h1 className="text-xl text-center font-extrabold text-white">Total Customer's</h1>
               <h1 className="text-xl justify-center text-white font-extrabold flex space-x-1">
                 <CountUp start={0} end={totalUsers} duration={2.5} /> <User />
               </h1>

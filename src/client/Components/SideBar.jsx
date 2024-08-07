@@ -69,7 +69,7 @@ const SideBar = () => {
                   <div className="grid mr-4 place-items-center">
                     <UserCheck />
                   </div>
-                  Users
+                  Customer's
                 </Link>
                 <Link
                   to={`/${userId}/salary`}
@@ -78,7 +78,7 @@ const SideBar = () => {
                   <div className="grid mr-4 place-items-center">
                     <IndianRupee />
                   </div>
-                  Users Prices
+                  Customer's Prices
                 </Link>
                 <Link
                   to={`/adduser/${userId}`}
@@ -87,7 +87,7 @@ const SideBar = () => {
                   <div className="grid mr-4 place-items-center">
                     <UserRoundPlus />
                   </div>
-                  Add user
+                  Add New Customer
                 </Link>
               </nav>
             </div>

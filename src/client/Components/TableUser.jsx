@@ -106,7 +106,7 @@ const TableUser = () => {
             >
               <span className="font-medium text-center text-2xl flex">
                 <UserRoundSearch className="h-8 mr-2" />
-                Users List{" "}
+                Customer' s List{" "}
               </span>
             </div>
           </div>
@@ -128,7 +128,7 @@ const TableUser = () => {
                         S.No
                       </th>
                       <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black min-w-[150px]">
-                        User Name
+                        Customer Name
                       </th>
                       <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
                         Mobile No

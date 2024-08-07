@@ -6,6 +6,7 @@ import { TotalProvider } from "../context/MilkTotalContex";
 import { useParams } from "react-router-dom";
 import statement from '../assets/statement.svg'
 import statement1 from '../assets/statement.png'
+import toast from "react-hot-toast";
 const HistoryTable = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,7 +28,18 @@ const HistoryTable = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [userId]);
+
+  const handleDeleteSubmit = async(milkId) =>{
+    try {
+      const response = await axios.delete(`http://localhost:3000/milk/delete/${userId}/${milkId}`);
+      console.log(response)
+      setData(data.filter(item => item._id !== milkId));
+      toast.success(response.data.message)
+    } catch (error) {
+      console.log("Error in deleteMilk data : ", error)
+    }
+  }
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
@@ -76,7 +88,7 @@ const HistoryTable = () => {
                       </div>
                     </th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">S.No</th>
-                    <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase min-w-[150px]">User Name</th>
+                    <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase min-w-[150px]">Customer Name</th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Street Address</th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Delivery Schedule</th>
                     <th className="p-5 text-left text-sm leading-6 font-bold text-black uppercase">Quantity</th>
@@ -131,7 +143,7 @@ const HistoryTable = () => {
                       </td>
                       <td className="flex p-5 items-center gap-0.5">
                          
-                          <button  className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center">
+                          <button onClick={() => handleDeleteSubmit(row._id)}  className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center">
                             <Trash2 />
                           </button>
                         </td>

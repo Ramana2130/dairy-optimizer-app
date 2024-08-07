@@ -111,12 +111,17 @@ router.put("/update/:id", async (req, res) => {
 });
 
 //delete
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:userId/:milkId", async (req, res) => {
+  const {userId, milkId} = req.params;  
   try {
-    const DeleteUserId = req.params.id;
-    const deleteuserId = await MilkModel.findByIdAndDelete(DeleteUserId);
-    if (!deleteuserId) {
-      res.status(404).send({ error: false, message: "Milkdata Not Found" });
+    const admin = await AdminUserModel.findById(userId);
+    if (!userId) {
+      res.status(404).send({ error: false, message: "Admin Not Found" });
+    }
+
+    const milkData = await MilkModel.findByIdAndDelete(milkId);
+    if(!milkData) {
+      return res.status(404).send({message: "Milk Data Not found"})
     }
     res
       .status(200)
