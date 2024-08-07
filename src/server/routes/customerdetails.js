@@ -92,13 +92,21 @@ router.put('/update/:id', async (req, res) => {
             updatedUser.password = hashedPassword;
             await updatedUser.save();
         }    
-
         // Check if the user was found and updated
         if (!updatedUser) {
             return res.status(404).send({ error: true, message: 'Customer Not Found' });
         }
-
-        // Send a success response with the updated user details
+        await MilkModel.updateMany(
+            { customer: userId },
+            {
+                $set: {
+                    username: req.body.username,
+                    streetaddress: req.body.streetaddress
+                }
+            }
+        );
+        
+         // Send a success response with the updated user details
         res.status(200).send({ success: true, updatedUser,message: 'Customer Updated Successfully' });
     } catch (error) {
         console.log(error);

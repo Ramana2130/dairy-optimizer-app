@@ -188,7 +188,7 @@ const UpdateUser = () => {
                      type="text"
                     name="city"
                     id="city"
-                    value={streetaddress}
+                    value={city}
                     // placeholder="Enter City"
                     required
                     className="w-full rounded-xl  border-opacity-40 border-grey border    bg-transparent  py-2 px-6 text-base font-medium text-black placeholder:text-black outline-none focus:border-pink focus:shadow-md"
