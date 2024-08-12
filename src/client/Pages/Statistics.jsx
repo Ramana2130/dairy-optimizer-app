@@ -58,7 +58,7 @@ const Statistics = () => {
         <span className="mr-3 text-rose-500">
           <SquarePlus />
         </span>
-        Add Milk with Customer
+        Add Milk to Customer
       </h1>
         <Link to={`/${userId}/users`} >
           <div className=" mt-10 w-full flex justify-center ">
