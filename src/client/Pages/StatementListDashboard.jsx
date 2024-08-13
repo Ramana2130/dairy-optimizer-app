@@ -56,77 +56,6 @@ const StatementListDashboard = () => {
                 </Link>
               </div>
             </div>
-<<<<<<< HEAD
-      <div className="block w-full overflow-x-auto text-black flex-1">
-        <table className="w-full">
-          <thead>
-            <tr>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Customer Name</th>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">ADDRESS</th>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Quantity</th>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Price</th>
-              <th className="px-6 align-middle py-3 text-md uppercase font-extrabold text-left">Date & Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentRows.map((data, index) => (
-              <tr key={index} className="border-b border-black/20">
-                <th className="px-6 align-middle text-md uppercase font-bold text-xs p-4 text-left">{data.username}</th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">{data.address}</td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">{data.quantity}</td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
-                  <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                  {data.price}
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md font-bold text-xs p-4">
-                  <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                  {new Date(data.createdAt).toLocaleString()}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <nav className="absolute bottom-4 left-0 right-0">
-        <ul className="flex justify-center mt-4 items-center">
-          <li>
-            <a
-              className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300 ${
-                currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
-              }`}
-              href="#"
-              aria-label="Previous"
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage > 1) handlePageChange(currentPage - 1);
-              }}
-            >
-              <div className="hover:bg-transparent hover:border-rose-500 hover:border-2 hover:text-grey text-white bg-rose-500 w-8 h-8 rounded-full  flex justify-center items-center">
-                <ChevronLeft />
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-rose-500 ${
-                currentPage === totalPages ? 'cursor-not-allowed opacity-100' : ''
-              }`}
-              href="#"
-              aria-label="Next"
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage < totalPages) handlePageChange(currentPage + 1);
-              }}
-            >
-              <div className="hover:bg-transparent hover:border-rose-500 hover:border-2 hover:text-grey text-white bg-rose-500 w-8 h-8 rounded-full  flex justify-center items-center">
-                <ChevronRight />
-              </div>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-=======
           </div>
           <div className="block w-full overflow-x-auto text-black flex-1">
             <table className="w-full">
@@ -205,7 +134,6 @@ const StatementListDashboard = () => {
             </ul>
           </nav>
         </div>
->>>>>>> 12dc0c6 (Final change)
       </div>
     </section>
   );

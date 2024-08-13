@@ -166,39 +166,6 @@ const TableUser = () => {
                             className="w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
                           />
                         </div>
-<<<<<<< HEAD
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        S.No
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black min-w-[150px]">
-                        Customer Name
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Mobile No
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Door No
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Street Address
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        City
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Delivery Schedule
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Max Quantity
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Actions
-                      </th>
-                      <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
-                        Add Milk
-                      </th>
-=======
                       </td>
                       <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
                         {indexOfFirstRow + index + 1}
@@ -243,7 +210,6 @@ const TableUser = () => {
                           <CirclePlus />
                         </Link>
                       </td>
->>>>>>> 12dc0c6 (Final change)
                     </tr>
                   ))
                 ) : (
