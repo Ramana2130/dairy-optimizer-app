@@ -13,12 +13,15 @@ const SalaryTable = () => {
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = userNames.slice(indexOfFirstRow, indexOfLastRow);
   const totalPages = Math.ceil(userNames.length / rowsPerPage);
+  
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   const handlePeriodChange = (event) => {
     setSelectedPeriod(event.target.value);
   };
+
   const getPeriodTotals = (username) => {
     return Object.keys(totals[username]).reduce((acc, monthYear) => {
       const year = monthYear.split("-")[0];
@@ -35,16 +38,18 @@ const SalaryTable = () => {
     }, {});
   };
 
+  const hasData = currentRows.length > 0;
+
   return (
     <TotalProvider>
       <div className="relative">
-        <div className="flex  my-24">
+        <div className="flex my-24">
           <div className="pb-4 relative">
             <div className="inline-block mx-auto align-middle">
-              <div className="overflow-hidden flex  space-x-16  h-[75vh] w-[75vw]  p-10 rounded-xl  shadow-2xl backdrop-blur">
-                <div className="w-[50vw] ">
+              <div className="overflow-hidden flex space-x-16 h-[75vh] w-[75vw] p-10 rounded-xl shadow-2xl backdrop-blur">
+                <div className="w-[50vw]">
                   <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
-                    <div className="py-1.5 px-3  flex justify-center  items-center gap-1 bg-transparent border-b border-rose-500   text-rose-500   uppercase font-bold">
+                    <div className="py-1.5 px-3 flex justify-center items-center gap-1 bg-transparent border-b border-rose-500 text-rose-500 uppercase font-bold">
                       <span className="font-medium text-center text-2xl">
                         Customer's Income List
                       </span>
@@ -82,36 +87,44 @@ const SalaryTable = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {currentRows.map((username, index) => {
-                        const periodTotals = getPeriodTotals(username);
-                        return Object.keys(periodTotals).map(
-                          (period, periodIndex) => (
-                            <tr
-                              key={`${username}-${period}`}
-                              className="transition-all duration-500 hover:bg-black/5 border-b  border-black/20"
-                            >
-                              <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                                {indexOfFirstRow + index + 1}
-                              </td>
-                              <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                                {username}
-                              </td>
-                              <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                                {period}
-                              </td>
-                              <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                                {periodTotals[period].quantity}
-                              </td>
-                              <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                                ${periodTotals[period].price.toFixed(2)}
-                              </td>
-                            </tr>
-                          )
-                        );
-                      })}
+                      {hasData ? (
+                        currentRows.map((username, index) => {
+                          const periodTotals = getPeriodTotals(username);
+                          return Object.keys(periodTotals).map(
+                            (period, periodIndex) => (
+                              <tr
+                                key={`${username}-${period}`}
+                                className="transition-all duration-500 hover:bg-black/5 border-b border-black/20"
+                              >
+                                <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                                  {indexOfFirstRow + index + 1}
+                                </td>
+                                <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                                  {username}
+                                </td>
+                                <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                                  {period}
+                                </td>
+                                <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                                  {periodTotals[period].quantity}
+                                </td>
+                                <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                                  ${periodTotals[period].price.toFixed(2)}
+                                </td>
+                              </tr>
+                            )
+                          );
+                        })
+                      ) : (
+                        <tr>
+                          <td colSpan="5" className="p-5 text-center text-black">
+                            No data available
+                          </td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
-                  <div className="absolute bottom-10 left-[250px]">
+                  <div className="absolute bottom-10 left-[390px]">
                     <div className="flex justify-center space-x-3 p-4">
                       <button
                         onClick={() => handlePageChange(currentPage - 1)}
@@ -130,7 +143,7 @@ const SalaryTable = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-center  w-[40%]">
+                <div className="flex items-center justify-center w-[40%]">
                   <img src={price} alt="" className="h-[600px]" />
                 </div>
               </div>

@@ -7,7 +7,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import statement from '../assets/profileblack.svg'
-
+import Grey from '../assets/black2.png';
+import pink from "../assets/black.png";
 const UserProfile = () => {
   const [username, setUsername] = useState('');
   const [phonenumber, setPhonenumber] = useState('');
@@ -66,7 +67,14 @@ const UserProfile = () => {
   return (
     <div className="h-[100vh] relative bg-white flex overflow-hidden">
       <UsersideNavbar/>
-      <div className="w-[100%] h-full flex justify-center"> 
+      
+      <div className="w-[100%]  overflow-hidden relative h-full flex justify-center"> 
+      <div className="absolute -top-20 -left-10">
+        <img src={Grey} alt="" className="h-[350px]" />
+      </div>
+      <div className="absolute -bottom-24 -right-16">
+        <img src={pink} alt="" className="h-[350px]" />
+      </div>
         <div className='flex border mt-36 justify-center w-[80%] h-full '>
 
         <div className='w-[50%]'>

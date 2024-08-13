@@ -11,37 +11,37 @@ const Userministatement = () => {
   const [adminData, setAdminData] = useState(null);
   const [adminMap, setAdminMap] = useState({});
   const rowsPerPage = 5;
-  const {customerId} = useParams();
+  const { customerId } = useParams();
 
   useEffect(() => {
-    if(customerId) {
+    if (customerId) {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/customer/${customerId}/details`)
+          const response = await axios.get(`http://localhost:3000/customer/${customerId}/details`);
           const milkData = response.data.milkDetails || [];
           const adminData = response.data.admin || null;
           const adminMap = {};
-          if(adminData) {
+          if (adminData) {
             adminData[adminData._id] = adminData.username;
           }
-          setAdminMap(adminData)
-          setData(milkData)
-          setAdminData(adminData)
+          setAdminMap(adminData);
+          setData(milkData);
+          setAdminData(adminData);
         } catch (error) {
           toast.promise(
             saveSettings(settings),
-             {
-               loading: 'fetching...',
-               error: <b>Server Error.</b>,
-             }
-           );
+            {
+              loading: 'fetching...',
+              error: <b>Server Error.</b>,
+            }
+          );
           console.error("Error fetching data:", error);
         }
       }
       fetchData();
     }
-  }, [customerId])
-  
+  }, [customerId]);
+
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = data.slice(indexOfFirstRow, indexOfLastRow);
@@ -57,9 +57,9 @@ const Userministatement = () => {
       <div className="mb-12 mx-8">
         <div className="rounded-t mb-0 px-4 py-3 border-0">
           <div className="flex flex-wrap items-center">
-            <div className="relative w-full  flex-grow flex-1">
-              <h1 className="text-white bg-black rounded-full px-5 py-2  border w-48 text-xl font-medium flex">
-                <span className="mr-2 text-white  h-5">
+            <div className="relative w-full flex-grow flex-1">
+              <h1 className="text-white bg-black rounded-full px-5 py-2 border w-48 text-xl font-medium flex">
+                <span className="mr-2 text-white h-5">
                   <BadgeInfo />
                 </span>
                 Statement
@@ -85,7 +85,7 @@ const Userministatement = () => {
                     Consumer Name
                   </th>
                   <th className="px-6 align-middle py-3 text-md uppercase font-semibold text-left">
-                    Delevery Schedule
+                    Delivery Schedule
                   </th>
                   <th className="px-6 align-middle py-3 text-md uppercase font-semibold text-left">
                     Quantity
@@ -99,27 +99,35 @@ const Userministatement = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentRows.map((data, index) => (
-                  <tr key={index}>
-                    <th className="px-6 align-middle text-md uppercase font-bold text-xs p-4 text-left">
-                      {adminMap[data.admin] || data.username}
-                    </th>
-                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
-                      {data.deliveryschedule}
-                    </td>
-                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
-                      {data.quantity}
-                    </td>
-                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
-                      <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                      {data.price}
-                    </td>
-                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md font-bold text-xs p-4">
-                      <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                      {new Date(data.createdAt).toLocaleString()}
+                {currentRows.length > 0 ? (
+                  currentRows.map((data, index) => (
+                    <tr key={index}>
+                      <th className="px-6 align-middle text-md uppercase font-bold text-xs p-4 text-left">
+                        {adminMap[data.admin] || data.username}
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
+                        {data.deliveryschedule}
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
+                        {data.quantity}
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md uppercase font-bold text-xs p-4">
+                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                        {data.price}
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md font-bold text-xs p-4">
+                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                        {new Date(data.createdAt).toLocaleString()}
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5" className="p-5 text-center text-black">
+                      No data available
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
@@ -127,7 +135,7 @@ const Userministatement = () => {
             <ul className="flex justify-center mt-4 items-center">
               <li>
                 <a
-                  className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full  text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300 ${
+                  className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300 ${
                     currentPage === 1 ? "cursor-not-allowed opacity-50" : ""
                   }`}
                   href="#"
@@ -137,14 +145,14 @@ const Userministatement = () => {
                     if (currentPage > 1) handlePageChange(currentPage - 1);
                   }}
                 >
-                  <div className="bg-black hover:bg-transparent hover:text-black hover:border hover:border-black  w-8 h-8 rounded-full text-white flex justify-center items-center">
+                  <div className="bg-black hover:bg-transparent hover:text-black hover:border hover:border-black w-8 h-8 rounded-full text-white flex justify-center items-center">
                     <ChevronLeft />
                   </div>
                 </a>
               </li>
               <li>
                 <a
-                  className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full  text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300 ${
+                  className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300 ${
                     currentPage === totalPages
                       ? "cursor-not-allowed opacity-50"
                       : ""
@@ -157,7 +165,7 @@ const Userministatement = () => {
                       handlePageChange(currentPage + 1);
                   }}
                 >
-                  <div className="bg-black hover:bg-transparent hover:text-black hover:border hover:border-black  w-8 h-8 rounded-full text-white flex justify-center items-center">
+                  <div className="bg-black hover:bg-transparent hover:text-black hover:border hover:border-black w-8 h-8 rounded-full text-white flex justify-center items-center">
                     <ChevronRight />
                   </div>
                 </a>

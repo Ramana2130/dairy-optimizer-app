@@ -60,10 +60,10 @@ const TableUser = () => {
       fetchData();
     }
   }, [userId]);
+
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = data.slice(indexOfFirstRow, indexOfLastRow);
-
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
   const handlePageChange = (page) => {
@@ -95,14 +95,12 @@ const TableUser = () => {
   };
 
   return (
-    <div className="flex  ">
-      <div className="flex justify-center items-center h-[100vh]  w-[84vw]">
-        <div className="overflow-hidden h-[75vh] w-[75vw] bg-white/5 backdrop-blur shadow-2xl p-5  rounded-xl  flex flex-col">
+    <div className="flex">
+      <div className="flex justify-center items-center h-[100vh] w-[84vw]">
+        <div className="overflow-hidden h-[75vh] w-[75vw] bg-white/5 backdrop-blur shadow-2xl p-5 rounded-xl flex flex-col">
           <div className="p-5 mx-auto flex justify-center leading-6 font-medium text-gray-900">
             <div
-              className="py-1.5 px-3  flex justify-center  items-center gap-1 
-        
-                          bg-transparent border-b border-rose-500   text-rose-500   uppercase font-bold"
+              className="py-1.5 px-3 flex justify-center items-center gap-1 bg-transparent border-b border-rose-500 text-rose-500 uppercase font-bold"
             >
               <span className="font-medium text-center text-2xl flex">
                 <UserRoundSearch className="h-8 mr-2" />
@@ -111,18 +109,64 @@ const TableUser = () => {
             </div>
           </div>
           <div className="flex-1 overflow-auto">
-            {data.length > 0 ? (
-              <>
-                <table className="table-auto w-full">
-                  <thead>
-                    <tr className="bg-transparent">
-                      <th>
-                        <div className="flex items-center py-5 px-5">
+            <table className="table-auto w-full">
+              <thead>
+                <tr className="bg-transparent">
+                  <th>
+                    <div className="flex items-center py-5 px-5">
+                      <input
+                        type="checkbox"
+                        className="w-5 h-5 appearance-none border rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
+                      />
+                    </div>
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    S.No
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black min-w-[150px]">
+                    User Name
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Mobile No
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Door No
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Street Address
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    City
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Delivery Schedule
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Max Quantity
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Actions
+                  </th>
+                  <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
+                    Add Milk
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.length > 0 ? (
+                  currentRows.map((row, index) => (
+                    <tr
+                      key={row._id}
+                      className="transition-all duration-500 hover:bg-black/5 border-b border-black/20"
+                    >
+                      <td className="p-5">
+                        <div className="flex items-center">
                           <input
                             type="checkbox"
-                            className="w-5 h-5 appearance-none border rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
+                            className="w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
                           />
                         </div>
+<<<<<<< HEAD
                       </th>
                       <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
                         S.No
@@ -154,79 +198,63 @@ const TableUser = () => {
                       <th className="p-5 text-left text-sm leading-6 font-semibold uppercase text-black">
                         Add Milk
                       </th>
+=======
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {indexOfFirstRow + index + 1}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.username}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.phonenumber}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.doorno}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.streetaddress}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.city}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.deliveryschedule}
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
+                        {row.maxrequiredquantity}
+                      </td>
+                      <td className="flex p-5 items-center gap-0.5">
+                        <Link
+                          to={`/updateuser/${userId}/${row._id}`}
+                          className="p-2 rounded-full group transition-all duration-500 hover:text-blue-700 uppercase text-blue-500 flex item-center"
+                        >
+                          <Settings2 />
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(row._id)}
+                          className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center"
+                        >
+                          <Trash2 />
+                        </button>
+                      </td>
+                      <td className="p-5 text-sm leading-6 font-medium uppercase text-green-500">
+                        <Link to={`/statementform/${userId}/${row._id}`}>
+                          <CirclePlus />
+                        </Link>
+                      </td>
+>>>>>>> 12dc0c6 (Final change)
                     </tr>
-                  </thead>
-                  <tbody className="">
-                    {currentRows.map((row, index) => (
-                      <tr
-                        key={row._id}
-                        className="transition-all duration-500 hover:bg-black/5 border-b  border-black/20"
-                      >
-                        <td className="p-5">
-                          <div className="flex items-center">
-                            <input
-                              type="checkbox"
-                              className="w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
-                            />
-                          </div>
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {indexOfFirstRow + index + 1}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.username}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.phonenumber}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.doorno}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.streetaddress}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.city}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.deliveryschedule}
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-black">
-                          {row.maxrequiredquantity}
-                        </td>
-                        <td className="flex p-5 items-center gap-0.5">
-                          <Link
-                            to={`/updateuser/${userId}/${row._id}`}
-                            className="p-2 rounded-full group transition-all duration-500 hover:text-blue-700 uppercase text-blue-500 flex item-center"
-                          >
-                            <Link to={`/updateuser/${userId}/${row._id}`}>
-                              <Settings2 />
-                            </Link>
-                          </Link>
-                          <button
-                            onClick={() => handleDelete(row._id)}
-                            className="p-2 rounded-full group transition-all duration-500 hover:text-red-600 flex uppercase text-red-400 item-center"
-                          >
-                            <Trash2 />
-                          </button>
-                        </td>
-                        <td className="p-5 text-sm leading-6 font-medium uppercase text-green-500">
-                          <Link to={`/statementform/${userId}/${row._id}`}>
-                            <CirclePlus />
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </>
-            ) : (
-              <div className="flex h-full justify-center items-center">
-                <p className="uppercase text-white text-2xl font-light p-5">
-                  No data available
-                </p>
-              </div>
-            )}
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="11" className="p-5 text-center text-black">
+                      No data available
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
           <div className="flex justify-center space-x-3  p-4">
             <button

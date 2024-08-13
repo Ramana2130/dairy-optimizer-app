@@ -94,7 +94,7 @@ const SideBar = () => {
           </div>
         </div>
 
-        <hr className="my-2 mt-[200px]  border-blue-gray-50" />
+        <hr className="my-2 mt-[270px]  border-blue-gray-50" />
         <div className="flex  items-center w-full p-3 hover:text-rose-500 a  transition-all rounded-lg outline-none text-start ">
           <div className="grid mr-4 place-items-center">
             <Mail />

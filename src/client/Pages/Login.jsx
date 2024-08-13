@@ -13,6 +13,8 @@ import Navbar from "../Components/Navbar";
 import { isAuthenticated } from "../utils/authUtils";
 import Tab from "../Components/Tab";
 
+import MobileUserLogin from "./MobileUi/MobileUserLogin";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -66,7 +68,9 @@ const Login = () => {
   };
 
   return (
-    <div className="h-[100vh] w-[100%] over1">
+    <div>
+
+    <div className="hidden md:block h-[100vh] w-[100%] over1">
       <div className="container mx-auto w-full relative">
         <div className="absolute -bottom-[400px] -left-[390px]">
           <img src={circle} alt="" className="h-[500px]" />
@@ -155,6 +159,11 @@ const Login = () => {
         </div>
       </div>
     </div>
+    <div className="md:hidden">
+        <MobileUserLogin/>
+    </div>
+    </div>
+
   );
 };
 

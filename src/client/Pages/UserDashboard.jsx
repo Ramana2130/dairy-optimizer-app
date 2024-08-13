@@ -8,6 +8,7 @@ import Calendar from "./Calendar";
 import { useNavigate } from "react-router-dom";
 import Time from "../Components/Time";
 import ConsumerDetails from "./ConsumerDetails";
+import MobileUserDashboard from "./MobileUi/MobileUserDashboard";
 
 const UserDashboard = () => {
   const [monthlyIncome, setMonthlyIncome] = useState(0);
@@ -75,7 +76,9 @@ const UserDashboard = () => {
   }, [token, navigate, customerId]);
 
   return (
-    <div className="h-[100vh] bg-white rounded-xl backdrop-blur-xl flex overflow-hidden">
+    <div>
+
+    <div className="hidden over md:flex h-[100vh] bg-white rounded-xl backdrop-blur-xl ">
       <UsersideNavbar />
       <div className="w-[60%] h-full">
         <div className="mt-5 w-full">
@@ -92,6 +95,11 @@ const UserDashboard = () => {
         <ConsumerDetails/>
       </div>
     </div>
+    <div className="md:hidden">
+       <MobileUserDashboard/>
+    </div>
+    </div>
+
   );
 };
 

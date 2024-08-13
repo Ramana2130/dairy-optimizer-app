@@ -38,10 +38,6 @@ const UserBox = ({ monthlyIncome, monthlyQuantity }) => {
   return (
     <div className="bg-white/20 backdrop-blur-3xl  shadow-2xl   mx-8 h-[40vh] border  rounded-3xl">
       <div className="p-10 relative">
-        {/* <div className="absolute top-8 z-0 right-36">
-          <img src={ball} alt="" className="h-52" />
-        </div> */}
-
         <h1 className="text-md text-black font-semibold mb-5">Dashboard OverView</h1>
         <h1 className="text-5xl font-extrabold text-black">
           Hello {customername || 'User'}!👋

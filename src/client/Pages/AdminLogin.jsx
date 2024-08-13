@@ -12,6 +12,8 @@ import { isAuthenticated } from "../utils/authUtils";
 import logo from '../assets/logo.svg';
 import Navbar from "../Components/Navbar";
 import Tab from "../Components/Tab";
+import MobileLogin from "./MobileUi/MobileHome";
+import MobileAdminLogin from "./MobileUi/MobileAdminLogin";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -60,7 +62,8 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="h-[100vh] w-[100%] over">
+    <section>
+    <div className="hidden md:block h-[100vh] w-[100%] over">
       <Navbar/>
       <div className="container mx-auto w-full relative">
         <div className="absolute -bottom-[440px] -left-[380px]">
@@ -164,6 +167,10 @@ const AdminLogin = () => {
         </div>
       </div>
     </div>
+    <div>
+        <MobileAdminLogin/>
+    </div>
+    </section>
   );
 };
 

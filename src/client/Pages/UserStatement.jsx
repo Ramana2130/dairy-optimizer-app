@@ -5,10 +5,12 @@ import DayRange from './DayRange'
 import Calendar from './Calendar'
 import Grey from '../assets/black2.png';
 import pink from "../assets/black.png";
+import MobileUserStatement from './MobileUi/MobileUserStatement'
 
 const UserStatement = () => {
   return (
-    <div className="h-[100vh] bg-white flex overflow-hidden">
+    <div>
+    <div className="hidden md:flex h-[100vh] bg-white  overflow-hidden">
 
       <UsersideNavbar/>
 
@@ -25,6 +27,10 @@ const UserStatement = () => {
         </div>
  
 
+    </div>
+    <div className='md:hidden'>
+      <MobileUserStatement/>
+    </div>
     </div>
   )
 }

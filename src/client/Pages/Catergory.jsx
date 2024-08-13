@@ -63,7 +63,7 @@ const Category = ({ morningUsers, eveningUsers, bothUsers, totalUsers }) => {
           </div>
         </div>
       </div>
-      <div className="yellow rounded-2xl h-[150px] w-[380px] shadow-xl" >
+      <div className="red rounded-2xl h-[150px] w-[380px] shadow-xl" >
         <div className="h-full pt-12">
           <div className="grid grid-cols-2 w-full justify-between mx-10">
             <div className="mx-3">

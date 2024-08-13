@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import nxtgen from "../assets/nxtgen.png";
 
+// Navbar.jsx
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
@@ -15,8 +16,9 @@ const Navbar = () => {
     location.pathname === "/adminregister";
   const islogin =
     location.pathname === "/login" || location.pathname === "/signup";
+
   return (
-    <div>
+    <div className={`relative z-10`}>
       <div
         className={
           islogin
@@ -29,8 +31,8 @@ const Navbar = () => {
         }
       >
         <div className="w-full">
-          <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-            <div className="flex flex-row items-center justify-between p-4">
+          <div className="hidden md:flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-center  md:flex-row md:px-6 lg:px-8">
+            <div className="flex flex-row items-center justify-center p-4">
               <a
                 href="#"
                 className="text-2xl font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline"
@@ -71,10 +73,10 @@ const Navbar = () => {
                   islogin
                     ? "text-black hover:text-brown"
                     : isAdmin
-                    ? "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
                     : isHome
-                    ? "text-black hover:text-pink"
-                    : "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
+                    : "text-black hover:text-rose-500"
                 }`}
                 href="/"
               >
@@ -86,10 +88,10 @@ const Navbar = () => {
                   islogin
                     ? "text-black hover:text-brown"
                     : isAdmin
-                    ? "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
                     : isHome
-                    ? "text-black hover:text-pink"
-                    : "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
+                    : "text-black hover:text-rose-500"
                 }`}
                 href="/team"
               >
@@ -100,10 +102,10 @@ const Navbar = () => {
                   islogin
                     ? "text-black hover:text-brown"
                     : isAdmin
-                    ? "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
                     : isHome
-                    ? "text-black hover:text-pink"
-                    : "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
+                    : "text-black hover:text-rose-500"
                 }`}
                 href="https://ramana2130.github.io/nxtgen/"
                 target="blank"
@@ -115,10 +117,10 @@ const Navbar = () => {
                   islogin
                     ? "text-black hover:text-brown"
                     : isAdmin
-                    ? "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
                     : isHome
-                    ? "text-black hover:text-pink"
-                    : "text-black hover:text-pink"
+                    ? "text-black hover:text-rose-500"
+                    : "text-black hover:text-rose-500"
                 }`}
                 href="/about"
               >
@@ -133,8 +135,8 @@ const Navbar = () => {
                   : isAdmin
                   ? "bg-grey text-white hover:text-black hover:bg-white"
                   : isHome
-                  ? "bg-grey text-white hover:text-white hover:bg-pink"
-                  : "bg-grey text-white hover:text-white hover:bg-pink"
+                  ? "bg-grey text-white hover:text-white hover:bg-rose-500"
+                  : "bg-grey text-white hover:text-white hover:bg-rose-500"
               }`}
             >
               SignUp
@@ -145,5 +147,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 
 export default Navbar;

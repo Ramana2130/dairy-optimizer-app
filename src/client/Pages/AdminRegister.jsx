@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import logo from '../assets/logo.svg'
 import Navbar from "../Components/Navbar";
 import Tab from "../Components/Tab";
+import MobileAdminsignup from "./MobileUi/MobileAdminSignup";
 
 const AdminRegisterForm = () => {
   const [username, setUsername] = useState("");
@@ -47,8 +48,9 @@ const AdminRegisterForm = () => {
   };
 
   return (
-    <div className="h-[100vh] w-[100%] over">
-      <div className="container mx-auto w-full relative">
+    <div className="">
+    <div className="hidden md:block h-[100vh] w-[100%] over">
+      <div className=" container mx-auto w-full relative">
        
         <div className="absolute -bottom-[400px] -left-[400px]">
           <img src={circle} alt="" className="h-[500px]" />
@@ -131,7 +133,7 @@ const AdminRegisterForm = () => {
                     className="w-full px-3 py-3 text-sm text-black border border-opacity-40 border-grey rounded-xl shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="phonenumber"
                     name="phonenumber"
-                    type="phonenumber"
+                    type="number"
                     placeholder="Mobile Number"
                     onChange={(e) => setPhonenumber(e.target.value)}
                     required
@@ -174,6 +176,10 @@ const AdminRegisterForm = () => {
 
           </div>
       </div>
+    </div>
+    <div className="md:hidden">
+        <MobileAdminsignup/>
+    </div>
     </div>
   );
 };

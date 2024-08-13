@@ -50,7 +50,7 @@ const Calendar = () => {
   return (
     <div className="flex items-center justify-center mb-8 px-4">
       <div className="max-w-sm w-full ">
-      <div className="md:p-4 p-2 space-x-5 bg-white flex justify-center mb-5  border shadow-2xl rounded-3xl">
+      <div className="md:p-4 p-2 space-x-5 hidden md:block bg-white flex justify-center mb-5  border shadow-2xl rounded-3xl">
       <div className='text-4xl'>
         <AlarmClock  className='h-10'/>
         </div>

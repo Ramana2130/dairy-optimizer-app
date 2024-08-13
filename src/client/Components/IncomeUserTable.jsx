@@ -1,4 +1,3 @@
-// IncomeUserTable.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -20,6 +19,7 @@ const monthNames = [
   "November",
   "December",
 ];
+
 const IncomeUserTable = ({ setMonthlyIncome, setMonthlyQuantity }) => {
   const [milkData, setMilkData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -79,21 +79,25 @@ const IncomeUserTable = ({ setMonthlyIncome, setMonthlyQuantity }) => {
       fetchMilkData();
     }
   }, [customerId, setMonthlyIncome, setMonthlyQuantity]);
+
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = milkData.slice(indexOfFirstRow, indexOfLastRow);
   const totalPages = Math.ceil(milkData.length / rowsPerPage);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="flex justify-center">
       <div className="pb-4 relative">
         <div className="inline-block mx-auto align-middle">
-          <div className="overflow-hidden bg-white/10  border  flex shadow-2xl h-[70vh] mt-2 w-[1300px] rounded-xl backdrop-blur">
+          <div className="overflow-hidden bg-white/10 border flex shadow-2xl h-[70vh] mt-2 w-[1300px] rounded-xl backdrop-blur">
             <div>
               <table className="table-auto w-[750px]">
                 <thead>
@@ -113,25 +117,33 @@ const IncomeUserTable = ({ setMonthlyIncome, setMonthlyQuantity }) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-300">
-                  {currentRows.map((data, index) => (
-                    <tr
-                      key={index}
-                      className="transition-all duration-500 hover:bg-white/20"
-                    >
-                      <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                        {indexOfFirstRow + index + 1}
-                      </td>
-                      <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                        {`${monthNames[data.month]} - ${data.year}`}
-                      </td>
-                      <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                        {data.totalQuantity}
-                      </td>
-                      <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
-                        ${data.totalPrice.toFixed(2)}
+                  {currentRows.length > 0 ? (
+                    currentRows.map((data, index) => (
+                      <tr
+                        key={index}
+                        className="transition-all duration-500 hover:bg-white/20"
+                      >
+                        <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                          {indexOfFirstRow + index + 1}
+                        </td>
+                        <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                          {`${monthNames[data.month]} - ${data.year}`}
+                        </td>
+                        <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                          {data.totalQuantity}
+                        </td>
+                        <td className="p-5 text-sm leading-6 font-medium text-black uppercase">
+                          ${data.totalPrice.toFixed(2)}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4" className="p-5 text-center text-black">
+                        No data available
                       </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
               <div className="absolute bottom-3 left-[300px]">
